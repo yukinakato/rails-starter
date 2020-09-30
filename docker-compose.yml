@@ -1,0 +1,40 @@
+version: "3"
+services:
+  rails:
+    build:
+      context: .
+      dockerfile: Dockerfile.rails
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/awesome_app
+      - /awesome_app/node_modules
+      - /awesome_app/tmp/cache
+    working_dir: /awesome_app
+    stdin_open: true
+    tty: true
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/:/etc/nginx/conf.d/
+    stdin_open: true
+    tty: true
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - /var/lib/mysql
+    stdin_open: true
+    tty: true
+  selenium_chrome:
+    image: selenium/standalone-chrome-debug
+    ports:
+      - "4444:4444"
+    shm_size: "2gb"
+    stdin_open: true
+    tty: true

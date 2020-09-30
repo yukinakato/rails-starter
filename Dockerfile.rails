@@ -1,0 +1,6 @@
+FROM ruby:2.6.6
+
+RUN apt-get update \
+  && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+  && apt-get -y install build-essential nodejs default-mysql-client \
+  && npm install -g yarn

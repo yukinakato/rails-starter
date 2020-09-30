@@ -1,0 +1,34 @@
+name: Just testing
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  rubocop-rspec:
+    name: rubocop and rspec
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout branch
+        uses: actions/checkout@v2
+
+      - name: docker-compose up -d
+        run: docker-compose up -d
+
+      - name: application setup
+        run: | 
+          docker-compose exec -T rails bundle install
+          docker-compose exec -T rails yarn install --check-files
+
+      - name: database setup
+        run: |
+          docker-compose exec -T rails rails db:create
+          docker-compose exec -T rails rails db:migrate
+
+      - name: rubocop
+        run: docker-compose exec -T rails bundle exec rubocop
+
+      - name: rspec
+        run: docker-compose exec -T rails bundle exec rspec
