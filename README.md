@@ -155,9 +155,9 @@ webpack-watch: bin/webpack --watch
 foreman start
 ```
 
-## アセットのプリコンパイル(production 向け)
+## アセットのプリコンパイル(production 環境向け)
 ```
 rails assets:clobber
-rails assets:precompile RAILS_ENV=production
+rails assets:precompile
 touch tmp/restart.txt 
 ```
