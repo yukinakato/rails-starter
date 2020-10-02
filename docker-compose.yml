@@ -27,8 +27,8 @@ services:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=password
-    volumes:
-      - /var/lib/mysql
+#    volumes:
+#      - /var/lib/mysql
     stdin_open: true
     tty: true
   selenium_chrome:
