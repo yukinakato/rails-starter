@@ -12,6 +12,8 @@ docker-compose exec rails bash
   rails new . -d mysql
 database.yml を適切に書き換え
   host は mysql とする
+  厳密な照合をする場合、 collation: utf8mb4_bin
+  MySQL デフォルトは utf8mb4_general_ci
 rails db:create
 ```
 
