@@ -30,7 +30,7 @@ docker-compose exec rails bash
 ```
 rails s -b 0.0.0.0
 development.rb
-  config.web_console.permissions = '172.27.0.0/12'
+  config.web_console.permissions = '0.0.0.0/0'
 ```
 
 ## RuboCop, erb-lint の導入
