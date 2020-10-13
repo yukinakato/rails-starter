@@ -5,5 +5,6 @@ RSpec.configure do |config|
     }
     Capybara.app_host = "http://rails"
     Capybara.server_host = "rails"
+    Rails.application.routes.default_url_options[:host] = "rails"
   end
 end
