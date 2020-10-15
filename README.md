@@ -162,5 +162,5 @@ foreman start
 ```
 rails assets:clobber
 rails assets:precompile
-touch tmp/restart.txt 
+rails restart
 ```
