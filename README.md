@@ -123,7 +123,8 @@ https://github.com/rails/webpacker/blob/master/docs/webpack.md#plugins
 const webpack = require('webpack')
 environment.plugins.prepend('Provide',
   new webpack.ProvidePlugin({
-    $: 'jquery'
+    $: 'jquery/src/jquery',
+    jQuery: 'jquery/src/jquery',
   })
 )
 ```
