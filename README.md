@@ -49,7 +49,7 @@ tasks.json (VSCode)
     {
       "label": "erb beautify",
       "type": "shell",
-      "command": "fp=$(echo ${file}) && if [[ ${fp##*.} == erb ]]; then htmlbeautifier ${file}; fi",
+      "command": "fp=$(echo ${file}) && if [[ ${fp##*.} == erb ]]; then htmlbeautifier ${file}; erblint ${file} --autocorrect; fi",
       "presentation": {
         "echo": false,
         "reveal": "never"
