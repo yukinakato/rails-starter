@@ -143,6 +143,7 @@ app/views/layouts/application.html.erb
 以下を body 直前に持ってくる
 <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 ```
+注：上記は webpacker を使用する場合
 
 ## Foreman の利用
 ```ruby
